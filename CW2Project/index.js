@@ -2,6 +2,11 @@ const express = require('express');
 const app = express();
 require('dotenv').config();  // will use .env files to store environment variables for configuring jwt tokens.
 
+const PORT = process.env.PORT || 3000;
+app.listen(PORT, () => {                                   // for heroku
+  console.log(`Server is listening on port ${PORT}`);
+});
+
 const cookieParser = require('cookie-parser');  // cookieparser to parse the cookie containing the jwt tokens.
 app.use(cookieParser());
 
