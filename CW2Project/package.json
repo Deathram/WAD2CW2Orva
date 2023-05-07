@@ -1,0 +1,29 @@
+{
+  "name": "WAD2CW2S1935034",
+  "version": "1.0.0",
+  "description": "",
+  "main": "index.js",
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/FionaMacRaeFairlie/WAD2Lab6.git"
+  },
+  "author": "Fiona Fairlie",
+  "license": "ISC",
+  "bugs": {
+    "url": "https://github.com/FionaMacRaeFairlie/WAD2Lab6/issues"
+  },
+  "homepage": "https://github.com/FionaMacRaeFairlie/WAD2Lab6#readme",
+  "dependencies": {
+    "bcrypt": "^5.1.0",
+    "bootstrap": "^5.2.3",
+    "cookie-parser": "^1.4.6",
+    "dotenv": "^16.0.3",
+    "express": "^4.17.2",
+    "jsonwebtoken": "^9.0.0",
+    "mustache-express": "^1.3.2",
+    "nedb": "^1.8.0"
+  }
+}

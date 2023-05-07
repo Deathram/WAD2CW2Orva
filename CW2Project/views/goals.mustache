@@ -1,0 +1,83 @@
+<html>
+
+<head>
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <title>Logged In</title>
+    <link rel="stylesheet" href="/css/bootstrap.min.css">
+    <link rel="stylesheet" href="/css/loginandRegisterstyles.css"> <!-- adding a custom stylesheet-->
+</head>
+
+<body class="container">
+
+    <nav class="navbar navbar-expand-md navbar-dark bg-darkgreen">
+        <div class="container-fluid">
+            <a class="navbar-brand text-black" href="#">HealthQuest</a>
+            <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarCollapse"
+                aria-controls="navbarCollapse" aria-expanded="false" aria-label="Toggle navigation">
+                <span class="navbar-toggler-icon"></span>
+            </button>
+            <div class="collapse navbar-collapse" id="navbarCollapse">
+                <ul class="navbar-nav ms-auto mb-2 mb-md-0">
+                    <li class="nav-item">
+                        <a class="nav-link text-black" href="/">Homepage</a>
+                    </li>
+                    <li class="nav-item">
+                        <a class="nav-link text-black" href="/about">About Us</a>
+                    </li>
+                    <li class="nav-item">
+                        <a class="nav-link text-black" href="/guides">Guides</a>
+                    </li>
+                    <li class="nav-item active">
+                        <a class="nav-link text-black" href="/goals">Goals</a>
+                    </li>
+                    <li class="nav-item">
+                        <a class="nav-link text-black" href="/achievements">Achievements</a>
+                    </li>
+                </ul>
+            </div>
+        </div>
+    </nav>
+
+    <h1>{{title}}</h1>
+    {{#goals}}
+    <div>
+        <h4>Goal type: {{goalType}}</h4>
+        <p>
+            Description: {{goalDesc}}
+            Created by {{username}}
+        </p>
+    </div>
+    <div>
+        <p>start date {{startDate}} , ends {{deadline}}</p>
+        <form action="/complete-goal" method="POST">
+            <input type="hidden" name="goalId" value="{{_id}}">
+            <button type="submit" class="btn btn-outline-dark btn-sm">Mark as Completed</button>
+        </form>
+        <form action="/delete-goal" method="POST">
+            <input type="hidden" name="goalId" value="{{_id}}">
+            <button type="submit" class="btn btn-outline-dark btn-sm">Delete Goal</button>
+        </form>
+    </div>
+
+    <hr>
+    {{/goals}}
+    {{^goals}}
+    No goals yet.
+    {{/goals}}
+    <div class="text-right">
+        <a href="/new" class="btn btn-outline-dark btn-sm">
+            Add a goal
+        </a>
+    </div>
+
+    <div class="text-right" style="margin-bottom: 1em;">
+        <a id="logout" href="/logout" class="btn btn-outline-dark btn-sm">
+            Sign out
+        </a>
+    </div>
+
+
+</body>
+
+</html>
